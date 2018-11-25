@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>graphics.values.ghq-flowa</string>
+	<key>category</key>
+	<string>Tools</string>
+	<key>connections</key>
+	<dict>
+		<key>DCF7EA45-5D2C-4921-BEBF-0834B3791492</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E1743A75-311A-4E7A-8C75-B65B14AC860D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>3144EFC3-17EE-43FA-A245-A2227FED772D</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>29530CA0-4A71-4455-BF06-1346CD4C2BD9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>sosuke-k</string>
+	<key>description</key>
+	<string>Open ghq repository with browser apps</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>ghq-flow</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://github.com/{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>E1743A75-311A-4E7A-8C75-B65B14AC860D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>http://values.graphics:24888/user/skato/tree/github.com/{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>3144EFC3-17EE-43FA-A245-A2227FED772D</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<false/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>0</integer>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>68</integer>
+				<key>keyword</key>
+				<string>ghq</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string></string>
+				<key>script</key>
+				<string>import os
+import sys
+import json
+import glob
+
+
+ghq_root = "/Users/skato/Dropbox/ghq"
+
+query = sys.argv[1]
+
+reps = [rep for rep in glob.glob(os.path.join(ghq_root, "**/**/*"))
+        if query in rep]
+
+items = []
+for rep in reps:
+    values = rep.split("/")
+    user = values[-2]
+    name = values[-1]
+    arg = "/".join(values[-3:])
+    items.append({
+        "uid": rep,
+        "type": "file",
+        "title": name,
+        "subtitle": arg,
+        "arg": user + "/" + name,
+        "autocomplete": arg,
+        "icon": {
+            "type": "fileicon",
+            "path": rep
+        }
+    })
+
+outjson = {
+    "items": items
+}
+
+sys.stdout.write(json.dumps(outjson))
+</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>subtext</key>
+				<string></string>
+				<key>title</key>
+				<string>Open ghq repositories</string>
+				<key>type</key>
+				<integer>3</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>DCF7EA45-5D2C-4921-BEBF-0834B3791492</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://waffle.io/{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>29530CA0-4A71-4455-BF06-1346CD4C2BD9</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>29530CA0-4A71-4455-BF06-1346CD4C2BD9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>320</integer>
+			<key>ypos</key>
+			<integer>320</integer>
+		</dict>
+		<key>3144EFC3-17EE-43FA-A245-A2227FED772D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>320</integer>
+			<key>ypos</key>
+			<integer>180</integer>
+		</dict>
+		<key>DCF7EA45-5D2C-4921-BEBF-0834B3791492</key>
+		<dict>
+			<key>xpos</key>
+			<integer>80</integer>
+			<key>ypos</key>
+			<integer>180</integer>
+		</dict>
+		<key>E1743A75-311A-4E7A-8C75-B65B14AC860D</key>
+		<dict>
+			<key>xpos</key>
+			<integer>320</integer>
+			<key>ypos</key>
+			<integer>50</integer>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://github.com/sosuke-k/ghq-flow</string>
+</dict>
+</plist>
