@@ -201,7 +201,8 @@ import json
 import glob
 
 
-ghq_root = "/Users/skato/Dropbox/ghq"
+# ghq_root = "/Users/skato/Dropbox/ghq"
+ghq_root = os.getenv("GHQ_ROOT")
 
 query = sys.argv[1]
 
@@ -592,6 +593,13 @@ sys.stdout.write(json.dumps(outjson))
 			<integer>200</integer>
 		</dict>
 	</dict>
+	<key>variables</key>
+	<dict>
+		<key>GHQ_ROOT</key>
+		<string>/Users/skato/Dropbox/ghq</string>
+	</dict>
+	<key>version</key>
+	<string></string>
 	<key>webaddress</key>
 	<string>https://github.com/sosuke-k/ghq-flow</string>
 </dict>
