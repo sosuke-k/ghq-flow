@@ -60,6 +60,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>597F6BC8-C17A-4D3E-9541-02F641C9EFF9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A2EC160C-9570-40E6-94CE-489D29FE0046</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>66BEF394-F557-433E-AC33-E2C59F8D4E8E</key>
 		<array>
 			<dict>
@@ -105,12 +118,58 @@
 				<key>vitoclose</key>
 				<false/>
 			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>E492A572-90F5-4F0A-B6AC-7695731BA5F3</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>597F6BC8-C17A-4D3E-9541-02F641C9EFF9</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
 		</array>
 		<key>A12A6BF9-EAEB-4427-A217-E2694BECCBF7</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
 				<string>C62C5063-0C31-49E8-859C-9226852F463E</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>A2EC160C-9570-40E6-94CE-489D29FE0046</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8A0AA8EC-097B-45B5-88F8-68C6FE976624</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C3428540-186D-4875-8C98-86B33858F1A3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>E55A8507-F746-4BD4-A6BD-BA1B8A5B2ECC</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -150,6 +209,19 @@
 			<dict>
 				<key>destinationuid</key>
 				<string>BAAE6193-18DC-40FF-A23F-E0BBEAEA1B3B</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>E492A572-90F5-4F0A-B6AC-7695731BA5F3</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>C3428540-186D-4875-8C98-86B33858F1A3</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -360,7 +432,7 @@ sys.stdout.write(json.dumps(outjson))
 				<key>fixedorder</key>
 				<false/>
 				<key>items</key>
-				<string>[{"title":"Waffle.io","arg":"waffle","subtitle":"Open waffle.io"},{"title":"Jupyter","arg":"jupyter","subtitle":"Open Jupyter"},{"title":"GitHub","arg":"github","subtitle":"Open GitHub"},{"title":"All","arg":"all","subtitle":"Open with waffle.io, jupyter and github.com"}]</string>
+				<string>[{"title":"Waffle.io","arg":"waffle","subtitle":"Open waffle.io"},{"title":"Jupyter","arg":"jupyter","subtitle":"Open Jupyter"},{"title":"GitHub","arg":"github","subtitle":"Open GitHub"},{"title":"All","arg":"all","subtitle":"Open with waffle.io, jupyter and github.com"},{"title":"Atom","arg":"atom","subtitle":"Open Atom Editor"},{"title":"Finder","arg":"finder","subtitle":"Open Finder"}]</string>
 				<key>keyword</key>
 				<string>_ghq</string>
 				<key>runningsubtext</key>
@@ -403,6 +475,24 @@ sys.stdout.write(json.dumps(outjson))
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict>
+					<key>action</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>74715135-99CF-4C27-8127-50A6E1E31326</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>inputstring</key>
 				<string>{var:action}</string>
 				<key>matchcasesensitive</key>
@@ -422,18 +512,19 @@ sys.stdout.write(json.dumps(outjson))
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argument</key>
+				<key>browser</key>
 				<string></string>
-				<key>variables</key>
-				<dict>
-					<key>action</key>
-					<string>{query}</string>
-				</dict>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://waffle.io/{var:repo}</string>
+				<key>utf8</key>
+				<true/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.utility.argument</string>
+			<string>alfred.workflow.action.openurl</string>
 			<key>uid</key>
-			<string>74715135-99CF-4C27-8127-50A6E1E31326</string>
+			<string>29530CA0-4A71-4455-BF06-1346CD4C2BD9</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -461,25 +552,6 @@ sys.stdout.write(json.dumps(outjson))
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://waffle.io/{var:repo}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>29530CA0-4A71-4455-BF06-1346CD4C2BD9</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
 				<key>inputstring</key>
 				<string>{var:action}</string>
 				<key>matchcasesensitive</key>
@@ -493,6 +565,132 @@ sys.stdout.write(json.dumps(outjson))
 			<string>alfred.workflow.utility.filter</string>
 			<key>uid</key>
 			<string>2D2E7350-9762-4BAF-BB92-7ACDFB9FB784</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{var:GHQ_ROOT}/github.com/{var:repo}</string>
+				<key>title</key>
+				<string>Opened Atom Editor</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>E55A8507-F746-4BD4-A6BD-BA1B8A5B2ECC</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>$ATOM_BIN_PATH $GHQ_ROOT/github.com/$repo</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>C3428540-186D-4875-8C98-86B33858F1A3</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{var:action}</string>
+				<key>matchcasesensitive</key>
+				<false/>
+				<key>matchmode</key>
+				<integer>2</integer>
+				<key>matchstring</key>
+				<string>atom</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>E492A572-90F5-4F0A-B6AC-7695731BA5F3</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>open $GHQ_ROOT/github.com/$repo</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A2EC160C-9570-40E6-94CE-489D29FE0046</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>{var:GHQ_ROOT}/github.com/{var:repo}</string>
+				<key>title</key>
+				<string>Opened Finder</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>8A0AA8EC-097B-45B5-88F8-68C6FE976624</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>inputstring</key>
+				<string>{var:action}</string>
+				<key>matchcasesensitive</key>
+				<false/>
+				<key>matchmode</key>
+				<integer>2</integer>
+				<key>matchstring</key>
+				<string>finder</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.filter</string>
+			<key>uid</key>
+			<string>597F6BC8-C17A-4D3E-9541-02F641C9EFF9</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -529,6 +727,13 @@ sys.stdout.write(json.dumps(outjson))
 			<key>ypos</key>
 			<integer>230</integer>
 		</dict>
+		<key>597F6BC8-C17A-4D3E-9541-02F641C9EFF9</key>
+		<dict>
+			<key>xpos</key>
+			<integer>390</integer>
+			<key>ypos</key>
+			<integer>610</integer>
+		</dict>
 		<key>66BEF394-F557-433E-AC33-E2C59F8D4E8E</key>
 		<dict>
 			<key>xpos</key>
@@ -543,6 +748,13 @@ sys.stdout.write(json.dumps(outjson))
 			<key>ypos</key>
 			<integer>230</integer>
 		</dict>
+		<key>8A0AA8EC-097B-45B5-88F8-68C6FE976624</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<integer>580</integer>
+		</dict>
 		<key>A12A6BF9-EAEB-4427-A217-E2694BECCBF7</key>
 		<dict>
 			<key>xpos</key>
@@ -550,12 +762,26 @@ sys.stdout.write(json.dumps(outjson))
 			<key>ypos</key>
 			<integer>50</integer>
 		</dict>
+		<key>A2EC160C-9570-40E6-94CE-489D29FE0046</key>
+		<dict>
+			<key>xpos</key>
+			<integer>530</integer>
+			<key>ypos</key>
+			<integer>580</integer>
+		</dict>
 		<key>BAAE6193-18DC-40FF-A23F-E0BBEAEA1B3B</key>
 		<dict>
 			<key>xpos</key>
 			<integer>700</integer>
 			<key>ypos</key>
 			<integer>70</integer>
+		</dict>
+		<key>C3428540-186D-4875-8C98-86B33858F1A3</key>
+		<dict>
+			<key>xpos</key>
+			<integer>530</integer>
+			<key>ypos</key>
+			<integer>450</integer>
 		</dict>
 		<key>C62C5063-0C31-49E8-859C-9226852F463E</key>
 		<dict>
@@ -585,6 +811,20 @@ sys.stdout.write(json.dumps(outjson))
 			<key>ypos</key>
 			<integer>320</integer>
 		</dict>
+		<key>E492A572-90F5-4F0A-B6AC-7695731BA5F3</key>
+		<dict>
+			<key>xpos</key>
+			<integer>390</integer>
+			<key>ypos</key>
+			<integer>480</integer>
+		</dict>
+		<key>E55A8507-F746-4BD4-A6BD-BA1B8A5B2ECC</key>
+		<dict>
+			<key>xpos</key>
+			<integer>700</integer>
+			<key>ypos</key>
+			<integer>450</integer>
+		</dict>
 		<key>E7CA16AB-7FFE-4E8C-A2DB-6F6A06675A7F</key>
 		<dict>
 			<key>xpos</key>
@@ -595,6 +835,8 @@ sys.stdout.write(json.dumps(outjson))
 	</dict>
 	<key>variables</key>
 	<dict>
+		<key>ATOM_BIN_PATH</key>
+		<string>/usr/local/bin/atom</string>
 		<key>GHQ_ROOT</key>
 		<string>/Users/skato/Dropbox/ghq</string>
 	</dict>
